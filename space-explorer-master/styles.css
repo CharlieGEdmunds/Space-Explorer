@@ -1,0 +1,338 @@
+* {
+    cursor: none;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+#blob {
+    z-index: 999;
+    position: fixed;
+    opacity: 0.7;
+    width: 20px; /* Blob size */
+    height: 20px;
+    background-color: #00fffb; /* Blob color */
+    border-radius: 50%; /* Makes the div circular */
+    pointer-events: none; /* Allows clicks to pass through */
+    transform: translate(-50%, -50%); /* Centers the blob on the cursor */
+    transition: transform 0.3s; /* Smooth transition for movement */
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* Semi-transparent black */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#startButton {
+    font-family: 'MuseoModerno', sans-serif;
+    padding: 20px 40px;
+    font-size: 50px;
+    border: 2px solid white;
+    /* White border */
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(150%);
+    transition: background-color 0.3s ease;
+}
+
+
+#startButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Transparent background */
+}
+
+#neptuneInput {
+    flex-direction: column;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* Semi-transparent black */
+    justify-content: center;
+    align-items: center;
+}
+
+#neptuneButton,
+#textInput {
+    font-family: 'MuseoModerno', sans-serif;
+    padding: 20px 40px;
+    font-size: 50px;
+    border: 2px solid white;
+    /* White border */
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(150%);
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+#musicButton {
+    z-index: 999;
+    position: fixed;
+    /* Fixed position */
+    top: 10px;
+    /* 10 pixels from the top */
+    right: 10px;
+    /* 10 pixels from the right */
+    background-color: transparent;
+    /* Transparent background */
+    color: white;
+    /* White text */
+    border: 2px solid white;
+    /* White border */
+    border-radius: 50%;
+    /* Make it round */
+    width: 50px;
+    /* Width of the button */
+    height: 50px;
+    /* Height of the button, same as width to make it a circle */
+    font-size: 24px;
+    /* Size of the music note */
+    line-height: 45px;
+    /* Center the music note vertically */
+    text-align: center;
+    /* Center the music note horizontally */
+    outline: none;
+    /* Remove focus outline */
+    box-shadow: none;
+    /* Remove box-shadow if any */
+}
+
+#musicButton:hover {
+    background-color: grey;
+    /* Grey background on hover */
+    opacity: 0.5;
+    /* Make it opaque when hovered */
+    transition: all 0.5s ease;
+}
+
+
+#MercuryCard {
+    display: none;
+    color: #2f2f2f; /* Dark gray */
+    background-color: rgba(192, 192, 192, 0.9); /* Silver with opacity */
+    border: 3px solid #a9a9a9; /* Dark gray border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    font-family: Arial, sans-serif; /* Default font */
+}
+
+
+#VenusCard {
+    display: none;
+    color: #4a4a4a; /* Dark gray */
+    background-color: rgba(255, 215, 0, 0.9); /* Gold with opacity */
+    border: 3px solid #ffd700; /* Gold border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    font-family: Arial, sans-serif; /* Default font */
+}
+
+
+#EarthCard {
+    display: none;
+    color: #2f2020; /* Dark brown */
+    background-color: rgba(135, 206, 235, 0.9); /* Sky blue with opacity */
+    border: 3px solid #87ceeb; /* Sky blue border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    font-family: Arial, sans-serif; /* Default font */
+}
+
+
+#MarsCard {
+    display: none;
+    color: #4a4a4a; /* Dark gray */
+    background-color: rgba(255, 145, 97, 0.9); /* Light red with opacity */
+    border: 3px solid #8b4513; /* Saddle brown border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    font-family: Arial, sans-serif; /* Default font */
+}
+
+
+#JupiterCard {
+    display: none;
+    color: #4a4a4a; /* Dark gray */
+    background-color: rgba(238, 232, 170, 0.9); /* Light yellow with opacity */
+    border: 3px solid #cd853f; /* Peru border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    font-family: Arial, sans-serif; /* Default font */
+}
+
+
+#SaturnCard {
+    display: none;
+    color: #4a4a4a; /* Dark gray */
+    background-color: rgba(245, 222, 179, 0.9); /* Light peach with opacity */
+    border: 3px solid #a0522d; /* Sienna border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    font-family: Arial, sans-serif; /* Default font */
+}
+
+
+#UranusCard {
+    display: none;
+    color: #4a4a4a; /* Dark gray */
+    background-color: rgba(173, 216, 230, 0.9); /* Light blue with opacity */
+    border: 3px solid #4682b4; /* Steel blue border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    font-family: Arial, sans-serif; /* Default font */
+}
+
+#NeptuneCard {
+    display: none;
+    color: #4a4a4a; /* Dark gray */
+    background-color: rgba(102, 178, 255, 0.9); /* Light blue with opacity */
+    border: 3px solid #4169e1; /* Royal blue border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    font-family: Arial, sans-serif; /* Default font */
+}
+
+#SunCard {
+    display: none;
+    color: #4a4a4a; /* Dark gray */
+    background-color: rgba(255, 215, 0, 0.9); /* Gold with opacity */
+    border: 3px solid #ffd700; /* Gold border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    font-family: Arial, sans-serif; /* Default font */
+}
+
+
+.info-card {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    width: 300px;
+    padding: 15px;
+    color: #1e1f22;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* Ensures it stays on top of other content */
+    font-family: Arial, sans-serif; /* Default font */
+}
+
+.info-card h3 {
+    margin-top: 0;
+
+}
+
+.info-card p {
+    font-size: 14px;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+}
+
+.info-card li {
+    margin-bottom: 8px;
+}
+
+#Booking {
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    font-family: Arial, sans-serif;
+}
+
+.booking-header {
+    background-color: rgba(22, 58, 144);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.exit-button {
+    position: absolute;
+    top: 75px;
+    right: 20px;
+    padding: 8px 16px;
+    background-color: #ffffff;
+    color: #282c34;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.logo {
+    height: 100px; /* Adjust size as needed */
+    position: absolute;
+    left: 20px; /* Adjust based on exact placement desires */
+    top: 40px;
+    transform: translateY(-50%);
+}
+
+.booking-main {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.booking-label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.booking-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+
+#confirmation {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
